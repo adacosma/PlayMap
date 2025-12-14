@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>PlayMap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+
+
+    <script src="https://js.arcgis.com/4.29/"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>PlayMap</h1>
+    <div id="user-info">
+      <span id="user-email"></span>
+      <button id="btn-logout" class="hidden">Logout</button>
+    </div>
+  </header>
+
+  <section id="auth-section">
+    <div class="auth-card">
+      <h2>Autentificare</h2>
+      <input id="login-email" type="email" placeholder="Email">
+      <input id="login-password" type="password" placeholder="Parolă">
+      <button id="btn-login">Login</button>
+      <button id="btn-register">Inregistrare</button>
+      <p id="auth-error" class="error"></p>
+    </div>
+  </section>
+
+  <main>
+    <aside id="sidebar">
+      <h2>Filtre</h2>
+      <label>Facilitati:</label>
+      <input id="filter-facilities" type="text" placeholder="leagan, tobogan...">
+      <button id="btn-apply-filter">Aplica filtrul</button>
+      <button id="btn-clear-filter">Sterge filtrul</button>
+
+      <hr>
+
+      <h2>Cautare in raza</h2>
+      <label>Raza (metri):</label>
+      <input id="radius-value" type="number" value="500">
+      <button id="btn-radius-search">Cauta locuri langa mine</button>
+
+      <hr>
+
+      <h2>Rating</h2>
+      <p id="selected-playground">Niciun loc selectat</p>
+      <label>Rating (1-5):</label>
+      <input id="rating-value" type="number" min="1" max="5">
+      <button id="btn-save-rating">Salveaza rating</button>
+
+      <hr>
+
+      <h2>Favorite</h2>
+      <button id="btn-add-favorite">Adauga la favorite</button>
+      <button id="btn-show-favorites">Arata doar favoritele mele</button>
+    </aside>
+
+    <section id="map-container">
+      <div id="viewDiv"></div>
+    </section>
+  </main>
+
+  <div id="message-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <p id="message-text"></p>
+      <button id="message-ok" class="modal-button">OK</button>
+    </div>
+  </div>
+
+
+  <div id="confirm-modal" class="modal">
+    <div class="modal-content confirm-content">
+      <p id="confirm-text"></p>
+      <div class="modal-buttons">
+        <button id="confirm-ok" class="modal-button">Da</button>
+        <button id="confirm-cancel" class="modal-button btn-cancel">Nu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="prompt-modal" class="modal">
+    <div class="modal-content prompt-content">
+      <p id="prompt-text"></p>
+      <input type="text" id="prompt-input" class="prompt-input">
+      <div class="modal-buttons">
+        <button id="prompt-ok" class="modal-button">OK</button>
+        <button id="prompt-cancel" class="modal-button btn-cancel">Anulează</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
