@@ -135,6 +135,40 @@ main {
   cursor: pointer;
 }
 
+/* auth switch links */
+.switch-form {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.switch-form a {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.switch-form a:hover {
+  text-decoration: underline;
+}
+
+.field-status {
+  display: block;
+  margin: 0.25rem 0 0.4rem 0;
+  font-size: 0.85rem;
+  min-height: 1.2rem;
+}
+
+.field-status.available {
+  color: #2e7d32;
+}
+
+.field-status.taken {
+  color: #c62828;
+}
+
+.field-status.checking {
+  color: #6a6a6a;
+}
+
 /* mesaje */
 .modal {
   display: none !important;
